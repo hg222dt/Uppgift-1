@@ -15,6 +15,12 @@ public class Triangle {
   double[] sides;
 
   public Triangle(double a, double b, double c) {
+
+    if (a <= 0.0 || b <= 0.0 || c <= 0.0)
+    {
+        throw new ArgumentNullException();
+    }
+
     sides = new double[] { a, b, c };
   } 
 
@@ -43,13 +49,13 @@ public class Triangle {
   }
 
   public bool isScalene() {
-    if(uniqueSides()==1)
+    if(uniqueSides()==3)
       return true;
     return false;
   }
 
   public bool isEquilateral() {
-    if(uniqueSides()==3)
+    if(uniqueSides()==1)
       return true;
     return false;
   }
