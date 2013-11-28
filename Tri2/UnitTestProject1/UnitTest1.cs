@@ -10,7 +10,11 @@ namespace UnitTestProject1
         [TestMethod]
         public void IsIsoscelesTest1()
         {
-            Triangle tri = new Triangle(1, 1, 2);
+            Point a = new Point(1,1);
+            Point b = new Point(1,2);
+            Point c = new Point(2,1);
+
+            Triangle tri = new Triangle(a, b, c);
             Assert.IsTrue(tri.isIsosceles());
         }
 
@@ -18,7 +22,12 @@ namespace UnitTestProject1
         [TestMethod]
         public void IsIsoscelesTest2()
         {
-            Triangle tri = new Triangle(1, 2, 3);
+            Point[] point = new Point[3];
+            point[0] = new Point(1, 1);
+            point[1] = new Point(1, 100);
+            point[2] = new Point(100, 200);
+
+            Triangle tri = new Triangle(point[0], point[1], point[2]);
             Assert.IsFalse(tri.isIsosceles());
         }
 
@@ -26,7 +35,12 @@ namespace UnitTestProject1
         [TestMethod]
         public void IsIsoscelesTest3()
         {
-            Triangle tri = new Triangle(1.00, 0.50, 1.00);
+            double[] sides = new double[3];
+            sides[0] = 1.00;
+            sides[1] = 2.00;
+            sides[2] = 1.00;
+
+            Triangle tri = new Triangle(sides[0], sides[1], sides[2]);
             Assert.IsTrue(tri.isIsosceles());
         }
 
@@ -45,7 +59,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void IsEquilateralTest1()
         {
-            Triangle tri = new Triangle(10, 10, 10);
+            Triangle tri = new Triangle(10.00, 10.00, 10.00);
             Assert.IsTrue(tri.isEquilateral());
         }
 
@@ -53,7 +67,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void IsEquilateralTest2()
         {
-            Triangle tri = new Triangle(10, 10, 20);
+            Triangle tri = new Triangle(10.00, 10.00, 20.00);
             Assert.IsFalse(tri.isEquilateral());
         }
 
@@ -81,7 +95,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void IsScaleneTest1()
         {
-            Triangle tri = new Triangle(10, 11, 12);
+            Triangle tri = new Triangle(10.00, 11.00, 12.00);
             Assert.IsTrue(tri.isScalene());
         }
 
@@ -89,7 +103,7 @@ namespace UnitTestProject1
         [TestMethod]
         public void IsScaleneTest2()
         {
-            Triangle tri = new Triangle(10, 10, 10);
+            Triangle tri = new Triangle(10.00, 10.00, 10.00);
             Assert.IsFalse(tri.isScalene());
         }
 
@@ -154,7 +168,7 @@ namespace UnitTestProject1
             catch (Exception ex)
             {
                 Assert.IsTrue(ex is ArgumentNullException);
-            }
+            }            
         }
     }
 }
